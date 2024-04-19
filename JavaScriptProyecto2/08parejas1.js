@@ -27,7 +27,7 @@ for(i = 0; i < 5; i++){
     b++;
     for(j = 0;j < 2; j++){
         a++;
-        console.log(`[${a},${b}]`)
+        console.log(a,b)
     }
 }
 
