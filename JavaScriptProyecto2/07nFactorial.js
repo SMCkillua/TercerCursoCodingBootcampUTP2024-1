@@ -1,3 +1,5 @@
+const prompt = require('prompt-sync')();
+
 function CalcularFactoriales() {
     let N = parseInt(prompt("Ingresa un número entero positivo para calcular el factorial: "));
 
