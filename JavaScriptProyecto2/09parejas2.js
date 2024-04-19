@@ -34,7 +34,7 @@ for(i = 0; i < 3; i++){
             c = 1
         }
     }
-    console.log(`[${a},${b},${c}]`)
+    console.log(a,b,c)
 }
 }
 
