@@ -1,18 +1,19 @@
 // Autores del programa
 /*
 autores: 
-ing andres mauricio robayo vargas,
-ing gabriel alejandro betancur rios, 
-ing angie vanessa guazaquillo ospina, 
-ing oscar julian salazar pinzon,
-ing daniela panasso hernandez, 
-ing luis panesso hernandez,
-ing jordan valencia patiño, 
-ing santiago ordoñez, 
-ing angel henao, 
-ing robert carvajal,
-ing michael castro, 
+ing andres mauricio robayo vargas
+ing gabriel alejandro betancur rios
+ing angie vanessa guazaquillo ospina
+ing oscar julian salazar pinzon
+ing daniela panasso hernandez 
+ing luis panesso hernandez
+ing jordan valencia patiño 
+ing santiago ordoñez 
+ing angel henao 
+ing robert carvajal
+ing michael castro
 ing juan esteban ortiz
+ing Camilo Giraldo Montoya
 */
 
 // 22/04/2024, 2 p.m.
