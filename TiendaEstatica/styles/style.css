@@ -1,0 +1,342 @@
+/* Estilos generales */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Fuente que se usa en la página */
+  margin: 0;
+  padding: 0; /* Quito los bordes para que no se vean las esquinas */
+}
+
+/* Estilos para elementos específicos */
+
+/* Estilos para el texto "¿No tienes cuenta?" */
+.noTieneCuenta {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  background-color: white;
+  border-radius: 5px;
+  display: block;
+  align-items: center;
+}
+
+/* Contenedor del formulario de inicio de sesión */
+.form-container .login-container {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: solid;
+  padding: 20px;
+  background-color: rgb(91, 182, 185);
+}
+
+/* Título del formulario de inicio de sesión */
+.form-container .login-container > h2/* Esto significa los elementos que estén por encima de h2*/ {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* Párrafos y elementos de texto dentro del formulario de inicio de sesión */
+.form-container .login-container > p,
+.form-container .login-container span {
+  text-align: center;
+}
+
+/* Etiquetas dentro del formulario de inicio de sesión */
+.form-container .login-container label {
+  display: block;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+/* Entradas de texto dentro del formulario de inicio de sesión */
+.form-container .login-container input.input {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px;
+  border: solid 1px #ccc;
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Estilos cuando una entrada de texto del formulario de inicio de sesión está enfocada */
+.form-container .login-container input.input:focus {
+  outline: solid 1px rgb(0, 153, 255);/* Contorno */
+}
+
+/* Estilos para el enlace "Registro" */
+.form-container .login-container .registro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;/* Definir un espacio entre las filas y las columnas*/
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Estilos para botones dentro del formulario de inicio de sesión */
+.form-container .login-container button.btn,
+.form-container .login-container input.btn {
+  padding: 15px 0;
+  width: 100%;
+  display: block;
+  border-radius: 5px;/* Borde curvo*/
+  cursor: pointer;
+}
+
+/* Estilos para la sección de productos */
+.products {
+  margin: 5px;
+  margin-top: 10px;
+}
+
+/* Estilos para los productos cuando los tocas*/
+.products .product:hover {
+  border-color: black;
+}
+
+/* Estilos para imágenes */
+img {
+  width: max-content;
+  height: 200px;
+  align-items: center;
+}
+
+/* Estilos para los productos */
+.products .product {
+  display: flex;
+  float: left;
+  width: 350px;
+  font-size: 20px;
+  align-items: center;
+  margin: 100px 5px 5px 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.105);
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+/* Estilos para el texto con negrita dentro de los productos */
+.products span.conNegrilla {
+  font-weight: bold;
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Estilos para el registro */
+.btn btn-registera {
+  text-decoration: none;
+  color: white;
+}
+
+/* Estilos para recuadros de texto de registro e inicio de sesión */
+.btn.btn-register,
+.form-container .login-container input.btn.btn-login {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+/* Estilos para el enlace "Olvidé mi contraseña" */
+.form-container .login-container .olvidoDeContraseña {
+  display: flex;
+  justify-content: end;
+}
+
+/* Estilos para la versión móvil en general*/
+.mobile {
+  display: none;
+}
+
+/* diferentes tamaños de pantalla */
+@media screen and (max-width: 1357px) {
+  .form-container {
+    width: 95%;
+  }
+  .form-container .login-container {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .form-container .login-container {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 596px) {
+  .desktop {
+    display: none!important;
+  }
+  .minimenu {
+    display: none;
+  }
+  .moreText {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 8px;
+  }
+  .mobile {
+    display: flex;
+    justify-content: space-between;
+  }
+  .mobile:hover .minimenu {
+    display: block;
+  }
+}
+
+/* Estilos para la barra de navegación */
+nav {
+  background-color: rgb(163, 163, 163);
+  color: white;
+  width: 100%;
+  margin-top: -10px;
+  position: fixed;
+  z-index: 1;
+}
+
+/* Estilos para el logo en la barra de navegación */
+nav .logo {
+  min-width: 250px;
+}
+
+nav .logo #mitadDelLogo1 {
+  color: rgb(0, 0, 201);
+  font-size: 30px;
+  font-family: fantasy;
+}
+
+nav .logo #mitadDelLogo2 {
+  color: rgb(0, 0, 84);
+  font-size: 30px;
+  font-family: fantasy;
+}
+
+/* Estilos para elementos de la barra de navegación */
+nav .desktop .primary #login {
+  color: black;
+  border-right: solid;
+  margin: 10px 0px 10px 10px;
+  font-size: 40px;
+}
+
+nav .desktop .primary #carrito {
+  color: black;
+  border-right: solid;
+  margin: 10px;
+  font-size: 40px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 15px 20px;
+}
+
+nav a:hover {
+  font-weight: bold;
+}
+
+nav .desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pad: 0 20px;
+}
+
+nav .desktop .primary,
+nav .desktop .secondary {
+  display: flex;
+  justify-content: end;
+}
+.navModificado{
+  position: relative;
+}
+/* Estilos para la estructura principal */
+.main {
+  display: flex;
+}
+
+/* Estilos para la sección izquierda */
+.left {
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Estilos para la sección izquierda y derecha */
+.left,
+.right {
+  width: 45%;
+  font-size: 2vw;
+  float: left;
+  margin-left: 5%;
+}
+
+/* Estilos para la sección derecha */
+.right {
+  width: 35%;
+  margin-top: 90px;
+  float: right;
+  background-color: #ccc;
+  text-align: center;
+  margin-right: 5%;
+}
+
+/* Estilos para la imagen en la sección izquierda */
+.left img {
+  width: 100%;
+  height: 40%;
+  width: max-content;
+}
+
+/* Estilos para los párrafos en la sección derecha */
+.right p {
+  padding: 60px;
+  font-size: 2vw;
+  font-weight: bold;
+  padding-bottom: 200px;
+}
+
+/* Estilos para el botón "Agregar al carrito" */
+.addToCart {
+  background-color: rgb(4, 190, 4);
+  color: white;
+  padding: 2vw;
+  margin-top: 200px;
+}
+
+.addToCart:hover {
+  font-weight: bold;
+  background-color: green;
+  cursor: pointer;/* Cambia el cursor al dedo*/
+}
+
+/* Estilos para el footer*/
+#footer {
+  display: block;
+  text-align: center;
+  float: inline-end;
+  width: 100%;
+}
+
+.footer {
+  background-color: gray;
+  padding: 30px;
+  display: block;
+  margin: 0;
+  color: white;
+  margin-top: 50px;
+}

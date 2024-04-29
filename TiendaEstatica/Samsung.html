@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadatos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaEstatica</title>
+  <!-- Enlace a la hoja de estilos externa -->
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav>
+    <div>
+      <!-- Contenido para dispositivos móviles -->
+      <div class="mobile">
+        <!-- Logo con enlace a la página principal -->
+        <div class="logo">
+          <a href="index.html" id="logoDirigido">
+            <span id="mitadDelLogo1">Tecno</span>
+            <span id="mitadDelLogo2">Shop</span>
+          </a>
+        </div>
+        <!-- Menú secundario para dispositivos móviles -->
+        <div class="secondary">
+          <div class="more">
+            <!-- Enlace "MÁS" para desplegar más opciones -->
+            <a href="#" class="moreText">MÁS</a>
+            <!-- Menú desplegable con opciones como login y carrito -->
+            <div class="minimenu">
+              <a href="login.html" id="login">Login</a>
+              <a href="#" id="carrito">Carrito</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contenido para dispositivos de escritorio -->
+      <div class="desktop">
+        <!-- Logo con enlace a la página principal -->
+        <div class="logo">
+          <a href="index.html" id="logoDirigido">
+            <span id="mitadDelLogo1">Tecno</span>
+            <span id="mitadDelLogo2">Shop</span>
+          </a>
+        </div>
+        <!-- Menú principal con opciones como login y carrito -->
+        <div class="primary">
+          <a href="login.html" id="login">Login</a>
+          <a href="#" id="carrito">Carrito</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección izquierda con imagen y detalles del producto -->
+    <div class="left">
+      <img src="images/SamsungA53.jfif" alt="Celular" />
+      <p class="detallesDeProducto">
+        Fotografía profesional en tu bolsillo <br>Descubre infinitas posibilidades
+        para tus fotos con las 3 cámaras principales de tu equipo. Pon a
+        prueba tu creatividad y juega con la iluminación, diferentes planos y
+        efectos para obtener grandes resultados.
+      </p>
+    </div>
+    <!-- Sección derecha con detalles adicionales del producto y opción para agregar al carrito -->
+    <div class="right">
+      <p class="detallesDeProducto">
+        Samsung Galaxy A54 5G 5G 128 GB awesome graphite 6 GB RAM
+      </p>
+      <h5>$999.000</h5>
+      <div class="addToCart">AGREGAR AL CARRITO</div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <div class="product" id="footer">
+    <!-- Créditos del creador -->
+    <p class="footer">HECHO POR: JORDAN VALENCIA PATIÑO</p>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadatos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaEstatica</title>
+  <!-- Enlace a la hoja de estilos externa -->
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav>
+    <div>
+      <!-- Contenido para dispositivos móviles -->
+      <div class="mobile">
+        <!-- Logo con enlace a la página principal -->
+        <div class="logo">
+          <a href="index.html" id="logoDirigido">
+            <span id="mitadDelLogo1">Tecno</span>
+            <span id="mitadDelLogo2">Shop</span>
+          </a>
+        </div>
+        <!-- Menú secundario para dispositivos móviles -->
+        <div class="secondary">
+          <div class="more">
+            <!-- Enlace "MÁS" para desplegar más opciones -->
+            <a href="#" class="moreText">MÁS</a>
+            <!-- Menú desplegable con opciones como login y carrito -->
+            <div class="minimenu">
+              <a href="login.html" id="login">Login</a>
+              <a href="#" id="carrito">Carrito</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contenido para dispositivos de escritorio -->
+      <div class="desktop">
+        <!-- Logo con enlace a la página principal -->
+        <div class="logo">
+          <a href="index.html" id="logoDirigido">
+            <span id="mitadDelLogo1">Tecno</span>
+            <span id="mitadDelLogo2">Shop</span>
+          </a>
+        </div>
+        <!-- Menú principal con opciones como login y carrito -->
+        <div class="primary">
+          <a href="login.html" id="login">Login</a>
+          <a href="#" id="carrito">Carrito</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección izquierda con imagen y detalles del producto -->
+    <div class="left">
+      <img src="images/Tablet Xiaomi Redmi Pad 6.jfif" alt="Tablet" />
+      <p class="detallesDeProducto">
+        Esta tablet es la combinación perfecta de rendimiento y versatilidad,
+        ideal para acompañar cada una de tus actividades. <br><br> Transferir,
+        sincronizar y acceder a tus dispositivos las veces que quieras ahora
+        es posible. Sus conexiones wifi 6 te permiten potenciar sus funciones
+        al máximo.
+      </p>
+    </div>
+    <!-- Sección derecha con detalles adicionales del producto y opción para agregar al carrito -->
+    <div class="right">
+      <p class="detallesDeProducto">
+        Tablet Xiaomi Redmi Pad 6 - 11 Pul 256gb - Gray - 8gb Ram Color
+        Gravity Gray
+      </p>
+      <h5>$1.299.900</h5>
+      <div class="addToCart">AGREGAR AL CARRITO</div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <div class="product" id="footer">
+    <!-- Créditos del creador -->
+    <p class="footer">HECHO POR: JORDAN VALENCIA PATIÑO</p>
+  </div>
+</body>
+</html>
+

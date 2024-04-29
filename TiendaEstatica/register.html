@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Metadatos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiendaEstatica</title>
+  <!-- Enlace a la hoja de estilos externa -->
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navModificado">
+    <div>
+      <!-- Contenido para dispositivos móviles (vacío en este caso) -->
+      <mobile>
+      </mobile>
+      <!-- Contenido para dispositivos de escritorio -->
+      <div class="desktop">
+        <!-- Logo con enlace a la página principal -->
+        <div class="logo"><a href="index.html" id="logoDirigido"><span id="mitadDelLogo1">Tecno</span><span
+              id="mitadDelLogo2">Shop</span></a></div>
+        <!-- Menú principal con opciones como login y carrito -->
+        <div class="primary">
+          <a href="login.html" id="login">Login</a>
+          <a href="#" id="carrito">Carrito</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenedor del formulario de registro -->
+  <div class="form-container">
+    <div class="login-container">
+      <!-- Título del formulario -->
+      <h2>Bienvenido a TecnoShop</h2>
+
+      <!-- Formulario de registro -->
+      <form action="">
+        <p>
+          <!-- Campo para ingresar nombre de usuario -->
+          <label for="username">Nombre de Usuario:</label>
+          <input class="input" type="text" name="username" />
+          <!-- Campo para ingresar correo electrónico -->
+          <label for="username">Correo electrónico:</label>
+          <input class="input" type="text" name="username" />
+          <!-- Campo para ingresar contraseña -->
+          <label for="password">Contraseña:</label>
+          <input class="input" type="password" name="password" />
+        </p>
+        <p>
+          <!-- Botón para enviar el formulario de registro -->
+          <input class="btn btn-login" type="submit" value="REGISTRARME" />
+        </p>
+        <div class="registro">
+          <!-- Mensaje para usuarios que ya tienen cuenta -->
+          <span class="noTieneCuenta">¿Tienes cuenta?</span>
+          <!-- Enlace para redirigir a la página de inicio de sesión -->
+          <a href="login.html"><button class="btn btn-register" type="button">INICIAR SESIÓN</button></a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="product" id="footer">
+    <!-- Créditos del creador -->
+    <p class="footer">HECHO POR: JORDAN VALENCIA PATIÑO</p>
+  </div>
+</body>
+
+</html>
