@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const cartaInner = this.querySelector(".carta-inner");
       const flipped = false
       const encontrado = false
-      const valorCarta = carta.getAttribute("data-valor"); // Obtener el valor de data-valor de la carta
+      let valorCarta = carta.getAttribute("data-valor"); // Obtener el valor de data-valor de la carta
 
       if (!flipped && !encontrado) {
         cartaInner.style.transform = "rotateY(180deg)";
@@ -70,67 +70,70 @@ document.addEventListener("DOMContentLoaded", function () {
           segundaCarta = carta;
 
           bloquearClicks = true; // Bloquear los clics mientras se evalúan las cartas
-
+          const primeravolteada = parseInt(primeraCarta.getAttribute("data-valor"))
+          console.log(primeravolteada )
+          const segundavolteada = parseInt(segundaCarta.getAttribute("data-valor"))
+          console.log(segundavolteada)
           // Espera un momento antes de evaluar si las cartas son iguales
           setTimeout(function () {
-            if (primeraCarta.getAttribute("data-valor") === segundaCarta.getAttribute("data-valor")) {
+            if (primeravolteada + 1 == segundavolteada || primeravolteada == segundavolteada + 1) {
               console.log("Encontraste", valorCarta);
               audioCorrecta.play();
               parejasEncontradas++;
               if (parejasEncontradas === totalCartas) {
                 console.log("ganado");
-                contenedorFinal.classList.remove("hidden")
+                contenedorFinal.classList.remove("hidden") 
                 audioFinal.play();
-              }else if (valorCarta == 1) {
+              }else if (valorCarta == 1 || valorCarta == 2) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonMaria.classList.toggle("caida");
                 audioMaria.play();
                 setTimeout(() => {
                   CartonMaria.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 2) {
+              } else if (valorCarta == 4 || valorCarta == 5) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonJose.classList.toggle("caida");
                 audioJose.play();
                 setTimeout(() => {
                   CartonJose.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 3) {
+              } else if (valorCarta == 7 || valorCarta == 8) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonJesus.classList.toggle("caida");
                 audioJesus.play();
                 setTimeout(() => {
                   CartonJesus.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 4) {
+              } else if (valorCarta == 10 || valorCarta == 11) {
                 contenedorPesebre.classList.remove("hidden");
                 Cartonmelchor.classList.toggle("caida");
                 audioMelchor.play();
                 setTimeout(() => {
                   Cartonmelchor.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 5) {
+              } else if (valorCarta == 13 || valorCarta == 14) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonGaspar.classList.toggle("caida");
                 audioGaspar.play();
                 setTimeout(() => {
                   CartonGaspar.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 6) {
+              } else if (valorCarta == 16 || valorCarta == 17) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonBaltazar.classList.toggle("caida");
                 audioBaltazar.play();
                 setTimeout(() => {
                   CartonBaltazar.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 7) {
+              } else if (valorCarta == 19 || valorCarta == 20) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonPastor.classList.toggle("caida");
                 audioPastor.play();
                 setTimeout(() => {
                   CartonPastor.classList.toggle("hidden");
                 }, 2900);
-              } else if (valorCarta == 8) {
+              } else if (valorCarta == 22 || valorCarta == 23) {
                 contenedorPesebre.classList.remove("hidden");
                 CartonMula.classList.toggle("caida");
                 audioMula.play();
