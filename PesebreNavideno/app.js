@@ -56,13 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (bloquearClicks) return;
 
       const cartaInner = this.querySelector(".carta-inner");
-      const flipped = cartaInner.getAttribute("data-flipped") === "true";
-      const encontrado = cartaInner.getAttribute("data-encontrado") === "true";
+      const flipped = false
+      const encontrado = false
       const valorCarta = carta.getAttribute("data-valor"); // Obtener el valor de data-valor de la carta
 
       if (!flipped && !encontrado) {
         cartaInner.style.transform = "rotateY(180deg)";
-        cartaInner.setAttribute("data-flipped", "true");
         volteadas++;
 
         if (volteadas === 1) {
@@ -74,18 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // Espera un momento antes de evaluar si las cartas son iguales
           setTimeout(function () {
-            if (
-              primeraCarta.getAttribute("data-valor") ===
-              segundaCarta.getAttribute("data-valor")
-            ) {
-              console.log("¡Encontraste una pareja! Valor:", valorCarta);
-              primeraCarta.setAttribute("data-encontrado", "true");
-              segundaCarta.setAttribute("data-encontrado", "true");
-
+            if (primeraCarta.getAttribute("data-valor") === segundaCarta.getAttribute("data-valor")) {
+              console.log("Encontraste", valorCarta);
               audioCorrecta.play();
               parejasEncontradas++;
               if (parejasEncontradas === totalCartas) {
-                console.log("¡Has ganado!");
+                console.log("ganado");
                 contenedorFinal.classList.remove("hidden")
                 audioFinal.play();
               }else if (valorCarta == 1) {
@@ -151,19 +144,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 "rotateY(0deg)";
               segundaCarta.querySelector(".carta-inner").style.transform =
                 "rotateY(0deg)";
-              primeraCarta
-                .querySelector(".carta-inner")
-                .setAttribute("data-flipped", "false");
-              segundaCarta
-                .querySelector(".carta-inner")
-                .setAttribute("data-flipped", "false");
               console.log("no coinciden");
               audioIncorrecta.play();
             }
 
             volteadas = 0; // Reinicia el contador de cartas volteadas
             bloquearClicks = false; // Desbloquear los clics después de evaluar las cartas
-          }, 700); // Tiempo en milisegundos antes de evaluar (1 segundo)
+          }, 700); // Tiempo en milisegundos antes de evaluar 
         }
       }
     });
@@ -189,7 +176,6 @@ let button1 = document.getElementById("continuar");
 button1.addEventListener("click", () => {
   let pesebre = document.getElementById("contenedor-pesebre");
   pesebre.classList.toggle("hidden");
-  document.body.preventDefault();
 });
 const volverIntentar = document.getElementById('volver-intentar');
 
