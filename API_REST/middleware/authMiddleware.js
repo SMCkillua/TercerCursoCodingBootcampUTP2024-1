@@ -1,24 +1,24 @@
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
 
-dotenv.config();
+export const authRequired = (req, res, next)=>{
+  const {token} = req.cookies;
+  if (!token) return res.status(401).json({
+    message:'No hay token, autorización denegada'
+  })
 
-const authenticate = (req, res, next) => {
-  const token = req.cookies.token;
-  if (!token) return res.status(401).json({ message: 'Not authenticated' });
+  jwt.verify(token, "/7hIuz79_^#i", (err, user) =>{
+    if (err) return res.status(401).json({
+      message:'Token no válido'
+  })
+  req.user = user
 
-  try {
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    req.user = decoded;
+  next();})
+}
+
+export const isAdmin = (req, res, next) => {
+  if (req.user && req.user.rol === 'Admin') {
     next();
-  } catch (err) {
-    res.status(401).json({ message: 'Invalid token' });
+  } else {
+    return res.status(403).json({ message: 'Acceso denegado: se requiere rol de administrador' });
   }
 };
-
-const authorizeAdmin = (req, res, next) => {
-  if (req.user.role !== 'Admin') return res.status(403).json({ message: 'Not authorized' });
-  next();
-};
-
-export { authenticate, authorizeAdmin };

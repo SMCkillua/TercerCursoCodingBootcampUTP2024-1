@@ -46,26 +46,17 @@ CREATE TABLE IF NOT EXISTS Comentarios (
     INDEX (id_libro)
 );
 
--- Insertar datos en la tabla Users
-INSERT INTO Users (email, password, rol, nombre, apellido) VALUES
-('admin@example.com', 'adminpassword', 'Admin', 'John', 'Doe'),
-('user1@example.com', 'user1password', 'User', 'Jane', 'Smith'),
-('user2@example.com', 'user2password', 'User', 'Alice', 'Johnson');
-
--- Insertar datos en la tabla Libros
 INSERT INTO Libros (titulo, autor, genero, ano_publicacion, isbn) VALUES
 ('Cien Años de Soledad', 'Gabriel Garcia Marquez', 'Novela', 1967, '978-0307474728'),
 ('Don Quijote de la Mancha', 'Miguel de Cervantes', 'Novela', 1605, '978-0060934347'),
 ('La Sombra del Viento', 'Carlos Ruiz Zafón', 'Novela', 2001, '978-0143126393');
 
--- Insertar datos en la tabla Reservas
 INSERT INTO Reservas (id_usuario, id_libro, fecha_reserva, fecha_devolucion, estado) VALUES
-(1, 1, '2024-05-01 10:00:00', '2024-06-01 10:00:00', 'activa'),
-(2, 2, '2024-05-15 15:00:00', '2024-06-15 15:00:00', 'activa'),
-(3, 3, '2024-05-20 20:00:00', '2024-06-20 20:00:00', 'activa');
+(1, 1, '2024-05-01', '2024-06-01', 'activa'),
+(2, 2, '2024-05-15', '2024-06-15', 'activa'),
+(3, 3, '2024-05-20', '2024-06-20', 'activa');
 
--- Insertar datos en la tabla Comentarios
 INSERT INTO Comentarios (id_usuario, id_libro, comentario, puntuacion, fecha_creacion) VALUES
-(1, 1, 'Excelente libro, muy recomendado.', 5, '2024-05-10 12:00:00'),
-(2, 2, 'Un clásico que todos deberían leer.', 4, '2024-05-18 18:00:00'),
-(3, 3, 'Me encantó la trama y los personajes.', 5, '2024-05-25 22:00:00');
+(1, 1, 'Excelente libro, muy recomendado.', 5, '2024-05-10'),
+(2, 2, 'Un clásico que todos deberían leer.', 4, '2024-05-18'),
+(3, 3, 'Me encantó la trama y los personajes.', 5, '2024-05-25');

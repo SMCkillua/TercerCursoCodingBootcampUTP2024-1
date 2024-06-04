@@ -25,6 +25,8 @@ const Libro = sequelize.define("Libro", {
     type: DataTypes.STRING(20),
     unique: true,
   },
+},{
+  timestamps: false, 
 });
 
 export default Libro;

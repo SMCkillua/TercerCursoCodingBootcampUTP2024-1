@@ -2,7 +2,6 @@ import { sequelize } from "../config/config.js";
 import { DataTypes } from "sequelize";
 import User from "./userModel.js";
 import Libro from "./libroModel.js";
-
 const Comentario = sequelize.define("Comentario", {
   id: {
     type: DataTypes.INTEGER,
@@ -39,6 +38,8 @@ const Comentario = sequelize.define("Comentario", {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
   },
+}, {
+  timestamps: false, 
 });
 
 export default Comentario;

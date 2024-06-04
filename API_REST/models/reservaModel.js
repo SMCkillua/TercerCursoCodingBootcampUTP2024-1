@@ -36,6 +36,8 @@ const Reserva = sequelize.define("Reserva", {
     type: DataTypes.ENUM("activa", "cancelada", "completada"),
     defaultValue: "activa",
   },
+},{
+  timestamps: false, 
 });
 
 export default Reserva;

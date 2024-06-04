@@ -1,43 +1,104 @@
 import User from '../models/userModel.js';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
+import { createAccessToken } from '../libs/jwt.register.js';
 
 dotenv.config();
 
-const register = async (req, res) => {
-  const { email, password, confirmPassword } = req.body;
-  if (password !== confirmPassword) return res.status(400).json({ message: 'Passwords do not match' });
+export const register = async (req, res) => {
+  const { email, password, confirmPassword, nombre, apellido } = req.body;
 
-  const userExists = await User.findOne({ where: { email } });
-  if (userExists) return res.status(400).json({ message: 'Email already registered' });
+  try {
+    if (password !== confirmPassword) {
+      return res.status(400).json({ message: 'Las contraseñas no coinciden' });
+    }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-  await User.create({ email, password: hashedPassword });
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ message: 'El email ya está registrado' });
+    }
 
-  res.status(201).json({ message: 'User registered successfully' });
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    const newUser = await User.create({
+      email,
+      password: passwordHash,
+      nombre,
+      apellido,
+      rol: "User"
+    });
+
+    const token = await createAccessToken({ id: newUser.id });
+
+    res.cookie('token', token, { httpOnly: true });
+
+    res.json({
+      message: 'Usuario creado exitosamente'
+    });
+  } catch (err) {
+    console.error('Error en el registro del usuario:', err);
+    res.status(500).send('Ocurrió un error al registrar el usuario');
+  }
 };
 
-const login = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ where: { email } });
 
-  if (!user) return res.status(404).json({ message: 'User not found' });
+  try {
+    const userFound = await User.findOne({ where: { email } });
 
-  const validPassword = await bcrypt.compare(password, user.password);
-  if (!validPassword) return res.status(400).json({ message: 'Incorrect password' });
+    if (!userFound) {
+      return res.status(400).json({ message: 'Usuario no encontrado' });
+    }
 
-  const token = jwt.sign({ id: user.id, role: user.role }, process.env.SECRET_KEY, { expiresIn: '1h' });
-  res.cookie('token', token, { httpOnly: true });
+    const isMatch = await bcrypt.compare(password, userFound.password);
 
-  res.status(200).json({ message: 'Login successful' });
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Contraseña incorrecta' });
+    }
+
+    const token = await createAccessToken({ id: userFound.id, rol: userFound.rol });
+
+    res.cookie('token', token, { httpOnly: true });
+
+    res.json({
+      message: 'Usuario logueado exitosamente'
+    });
+  } catch (err) {
+    console.error('Error en el proceso de login:', err);
+    res.status(500).send('Ocurrió un error en el servidor');
+  }
 };
 
-const logout = (req, res) => {
-  res.clearCookie('token');
-  res.status(200).json({ message: 'Logout successful' });
+export const logout = (req, res) => {
+  try {
+    res.cookie('token', '', {
+      expires: new Date(0)
+    });
+    res.status(200).json({
+      message: 'Logout exitoso, token borrado'
+    });
+  } catch (err) {
+    console.error('Error en el proceso de logout:', err);
+    res.status(500).send('Ocurrió un error en el servidor');
+  }
 };
 
+export const profile = async (req, res) => {
+  try {
+    const userFound = await User.findOne({ where: { id: req.user.id } });
 
+    if (!userFound) {
+      return res.status(400).json({ message: 'Usuario no encontrado' });
+    }
 
-export { register, login, logout };
+    res.json({
+      id: userFound.id,
+      nombre: userFound.nombre,
+      email: userFound.email
+    });
+  } catch (err) {
+    console.error('Error en el proceso de obtener el perfil:', err);
+    res.status(500).send('Ocurrió un error en el servidor');
+  }
+};
