@@ -3,7 +3,7 @@ Los errores pueden ser manejados de la manera más perfecta, pero si se manejan.
 La unica tabla con solo un registro es Users, las demás si tienen sus respectivos registros.
 No se usaron variables de entorno por temas de conecciones.
 Se usó espanglish porque es mi idioma natal.
-
+Los procesos de verificacion no está a nivel de esquema.
 
 Estas son las formas de entregar los datos a esta api
 
@@ -57,11 +57,5 @@ Estas son las formas de entregar los datos a esta api
     "genero":"auto ayuda",
     "ano_publicacion":"2018",
     "isbn": "978-3959721714"
-}
-
-//ejemplo de post y put en /reservas :
-
-{
-    
 }
 
