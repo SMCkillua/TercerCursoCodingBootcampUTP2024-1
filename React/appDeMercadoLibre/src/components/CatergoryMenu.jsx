@@ -1,40 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import submenu from "../routes/SubmenuRoutes.json";
 
 const CategoryMenu = () => {
   const [categories, setCategories] = useState([]);
-  const [expanded, setExpanded] = useState({});
+  const [visibleSubmenu, setVisibleSubmenu] = useState(null);
 
   useEffect(() => {
-    axios.get('https://api.mercadolibre.com/sites/MLA/search?seller_id=179571326')
-      .then(response => {
-        const categories = response.data.available_filters.find(filter => filter.id === 'category').values;
+    axios
+      .get("https://api.mercadolibre.com/sites/MLA/search?seller_id=179571326")
+      .then((response) => {
+        const categories = response.data.available_filters.find(
+          (filter) => filter.id === "category"
+        ).values;
         setCategories(categories);
       });
   }, []);
 
-  const toggleExpand = (id) => {
-    setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
+  const handleSubMenuClick = (categoryName) => {
+    setVisibleSubmenu((prev) => (prev === categoryName ? null : categoryName));
+  };
+
+  const getSymbol = (categoryName) => {
+    return visibleSubmenu === categoryName ? "-" : "+";
   };
 
   return (
     <div className="category-menu">
+      <h2>Categorías</h2>
       <ul>
-        {categories.map(category => (
+        {categories.map((category) => (
           <li key={category.id}>
-            <button onClick={() => toggleExpand(category.id)}>
-              {expanded[category.id] ? '-' : '+'}
-            </button>
-            <Link to={`/${category.id}`}>{category.name}</Link>
-            {expanded[category.id] && category.path_from_root.length > 1 && (
-              <ul>
-                {category.path_from_root.map(subcategory => (
-                  <li key={subcategory.id}>
-                    <Link to={`/${subcategory.id}`}>{subcategory.name}</Link>
-                  </li>
-                ))}
-              </ul>
+            <Link
+              to={`/${category.id}`}
+              onClick={() => handleSubMenuClick(category.name)}
+            >
+              {getSymbol(category.name)} {category.name}
+            </Link>
+            {category.name === "Computación" && visibleSubmenu === "Computación" && (
+              <div id="submenu1" className="category-submenu">
+                <ul>
+                  {submenu.Computacion.map((item) => (
+                    <li key={item.id}>
+                      <Link to={`/${item.category_id}`}>{item.domain_id}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {category.name === "Electrónica, Audio y Video" && visibleSubmenu === "Electrónica, Audio y Video" && (
+              <div id="submenu2" className="category-submenu">
+                <ul>
+                  {submenu.Electronica_Audio_y_video.map((item) => (
+                    <li key={item.id}>
+                      <Link to={`/${item.category_id}`}>{item.domain_id}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </li>
         ))}

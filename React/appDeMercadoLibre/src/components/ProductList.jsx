@@ -19,10 +19,11 @@ const ProductList = ({ categoryId }) => {
     <div className="product-list">
       {products.map(product => (
         <div key={product.id} className="product-item">
-          <a href={product.permalink} target="_blank" rel="noopener noreferrer">
             <img src={product.thumbnail} alt={product.title} />
+          <a href={product.permalink} target="_blank" rel="noopener noreferrer">
             <h3>{product.title}</h3>
           </a>
+            <h4>${product.price}</h4>
         </div>
       ))}
     </div>
