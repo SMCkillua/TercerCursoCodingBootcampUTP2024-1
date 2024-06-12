@@ -28,7 +28,8 @@ const CategoryMenu = () => {
 
   return (
     <div className="category-menu">
-      <h2>Categorías</h2>
+      <Link to='/'><p className="Parrafo-home">Mercado de Miguel</p></Link>
+      <h2 style={{color: "white", margin: "20px"}}>Categorías</h2>
       <ul>
         {categories.map((category) => (
           <li key={category.id}>
