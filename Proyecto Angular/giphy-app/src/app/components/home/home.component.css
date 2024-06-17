@@ -8,21 +8,79 @@
   flex-direction: row;
   flex-wrap: nowrap;
   background-color: #000000;
+  overflow-x: hidden;
 }
-
+.historial{
+  display: none;
+}
+.historial img{
+  margin: 1rem;
+  cursor: pointer;
+  width: 4rem;
+  filter: invert();
+}
 
 .leftSection{
   width: 20%;
-  height: 100rem;
-  min-height: 100vh;
+  min-height: 100vh auto;
   background-color: #303030;
 }
-
+.leftSection img{
+  filter: invert();
+  width: 1.6rem;
+  margin-left: 13em;
+  margin-top: 1vh;
+  position: absolute;
+  cursor: pointer;
+}
+.hidden{
+  animation: aparicion 0.7s reverse;
+  display: none;
+}
+.noHidden{
+  display: block!important;
+  position: absolute;
+  z-index: 1;
+  width: 60%;
+  animation: aparicion 0.7s ;
+}
 
 .rightSection{
   width: 80%;
   height: auto;
   min-height: 100vh;
 }
-
+@keyframes aparicion {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+}
+@media screen and (max-width: 917px) {
+  .leftSection {
+    display: none;
+  }
+  .historial{
+    display: block;
+  }
+  .rightSection{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  app-grid-gifs{
+    width: 100%;
+  }
+}
+@media screen and (min-width: 917px) {
+  #flecha{
+    display: none;
+  }
+}
 

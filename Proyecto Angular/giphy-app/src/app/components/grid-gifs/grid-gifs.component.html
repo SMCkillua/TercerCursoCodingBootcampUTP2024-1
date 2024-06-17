@@ -1,6 +1,6 @@
 <div class="gridContainer">
   <div class="search">
-    <input type="text" id="infoInput" placeholder="Busca tu gif" />
+    <input type="text" id="infoInput" placeholder="Busca tu gif" (keydown.enter)="search()"/>
     <button id="searchButton" (click)="search()">
       <img src="../../../assets/search.png" alt="Lupita" />
     </button>

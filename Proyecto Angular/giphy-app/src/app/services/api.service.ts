@@ -29,4 +29,7 @@ export class ApiService {
     }
     this.historial = this.historial.slice(0, 10)
   }
+  deleteHistorial(eleccion:string){
+    this.historial = this.historial.filter(item => item != eleccion)
+  }
 }

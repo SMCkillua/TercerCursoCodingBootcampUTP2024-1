@@ -18,14 +18,22 @@
   gap: 20px;
 }
 
-.historyList button h3{
+.historyList button h2{
   color: #FFFFFF;
+}
+.historyList button img{
+  width: 2em;
+  filter: invert();
 }
 
 .historyList button{
-  background-color: #3A3A3A;
   width: 70% ;
   height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6em;
+  background-color: #3A3A3A;
   border-radius: 5px;
   box-shadow: 0px 5px 2px 2px #272727;
 }

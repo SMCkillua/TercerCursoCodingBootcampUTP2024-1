@@ -9,8 +9,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./grid-gifs.component.css']
 })
 export class GridGifsComponent implements OnInit{
- 
-  gifs: any[] = []
+  @Input() gifs?: any[];
+  
 
   constructor(private apiService: ApiService, private sanitizer: DomSanitizer){
   }

@@ -1,9 +1,12 @@
 <div class="homecomonent">
-  <div class="leftSection">
-    <app-history></app-history>
+  <div class="leftSection {{estadoHistorial}}" >
+    <img id="flecha"src="../../../assets/angulo-izquierdo.png" alt="flecha" class="{{estadoHistorial}}" (click)="ocultarHistorial()">
+    <app-history (historialActivo)="gifsAgrupados = $event"></app-history>
+  </div>
+  <div class="historial">
+    <img src="https://previews.123rf.com/images/olyvia90/olyvia902009/olyvia90200900036/156605586-icono-de-historial-icono-de-línea-de-historial-símbolo-para-sitio-web-ordenador-y-móvil.jpg" alt="Historial" (click)="desplegarHistorial()">
   </div>
   <div class="rightSection">
-    <app-search></app-search>
-    <app-grid-gifs/>
+    <app-grid-gifs [gifs]="gifsAgrupados"/>
   </div>
 </div>
