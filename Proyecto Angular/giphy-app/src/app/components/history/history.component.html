@@ -1,6 +1,6 @@
-<div class="historyContainer">
+<div  class="historyContainer">
   <h1 class="title">History</h1>
   <div class="historyList">
-    <button><h3>Gatos</h3></button>
+    <button *ngFor="let historial of historiales" (click)="search(historial)"><h3>{{historial}}</h3></button>
   </div>
 </div>
