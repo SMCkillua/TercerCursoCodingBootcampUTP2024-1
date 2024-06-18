@@ -20,6 +20,7 @@ export class GridGifsComponent implements OnInit{
 
   search(){
     const info : any = document.querySelector("#infoInput") as HTMLInputElement;
+    
     const infoText = info.value;
     this.apiService.searchGifs(infoText).subscribe(
       (res) => {
